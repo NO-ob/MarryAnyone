@@ -54,6 +54,10 @@ namespace MarryAnyone.Settings
         [SettingPropertyGroup("{=relationship}Relationship Options", GroupOrder = 2)]
         public bool Incest { get; set; } = false;
 
+        [SettingPropertyFloatingInteger("{=min_marriage_age} Min Marriage Age", 0f, 100f, "0.00", RequireRestart = false, Order = 1, HintText = "{=min_marriage_age_desc} Minimum age for marriage to be allowed.")]
+        [SettingPropertyGroup("{=relationship}Relationship Options", GroupOrder = 2)]
+        public float MinMarriageAge { get; set; } = 16.00f;
+
         [SettingPropertyBool("{=debug}Debug", RequireRestart = false, HintText = "{=debug_desc}Displays mod developer debug information in the game's message log.")]
         public bool Debug { get; set; } = false;
 

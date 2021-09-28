@@ -28,6 +28,7 @@ namespace MarryAnyone.Settings
         public bool RetryCourtship { get => _provider.RetryCourtship; set => _provider.RetryCourtship = value; }
         public string PregnancyMode { get => _provider.PregnancyMode; set => _provider.PregnancyMode = value; }
         public float FertilityBonus { get => _provider.FertilityBonus; set => _provider.FertilityBonus = value; }
+        public float MinMarriageAge {get => _provider.MinMarriageAge; set => _provider.MinMarriageAge = value; }
 
         public MASettings()
         {
@@ -59,6 +60,7 @@ namespace MarryAnyone.Settings
                     MAConfig.Instance.RetryCourtship = config.RetryCourtship;
                     MAConfig.Instance.PregnancyMode = config.PregnancyMode;
                     MAConfig.Instance.FertilityBonus = config.FertilityBonus;
+                    MAConfig.Instance.MinMarriageAge = config.MinMarriageAge;
                     NoMCMWarning = true;
                     NoConfigWarning = false;
                 }

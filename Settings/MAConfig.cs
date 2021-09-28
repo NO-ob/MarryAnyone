@@ -17,5 +17,6 @@
         public bool RetryCourtship { get; set; } = false;
         public string PregnancyMode { get; set; } = "Default";
         public float FertilityBonus { get; set; } = 1f;
+        public float MinMarriageAge { get; set; } = 16.00f;
     }
 }
