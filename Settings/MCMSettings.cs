@@ -100,5 +100,10 @@ namespace MarryAnyone.Settings
             HintText = "{=fertility_bonus_desc}Adds modifier to chance of pregnancy. 100% = No Bonus, 200% = 2x chance. Note: May not do much after ~6-8 kids due to the base pregnancy calculations."),
             SettingPropertyGroup("{=pregnancy}Pregnancy", GroupOrder = 4)]
         public float FertilityBonus { get; set; } = 1.0f;
+
+        [SettingPropertyFloatingInteger("{=min_pregnancy_age} Min Pregnancy Age", 0f, 100f, "0.00", RequireRestart = false, Order = 1, HintText = "{=min_pregnancy_age_desc} Minimum age for pregnancy to be allowed.")]
+        [SettingPropertyGroup("{=pregnancy}Pregnancy", GroupOrder = 4)]
+        public float MinPregnancyAge { get; set; } = 16.00f;
+
     }
 }

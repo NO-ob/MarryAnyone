@@ -15,7 +15,7 @@ namespace MarryAnyone
         public static void Print(string message)
         {
             ISettingsProvider settings = new MASettings();
-            if (settings.Debug)
+            if(settings.Debug)
             {
                 // Custom purple!
                 Color color = new(0.6f, 0.2f, 1f);

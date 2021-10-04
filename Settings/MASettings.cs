@@ -29,7 +29,7 @@ namespace MarryAnyone.Settings
         public string PregnancyMode { get => _provider.PregnancyMode; set => _provider.PregnancyMode = value; }
         public float FertilityBonus { get => _provider.FertilityBonus; set => _provider.FertilityBonus = value; }
         public float MinMarriageAge {get => _provider.MinMarriageAge; set => _provider.MinMarriageAge = value; }
-
+        public float MinPregnancyAge {get => _provider.MinPregnancyAge; set => _provider.MinPregnancyAge = value; }
         public MASettings()
         {
             if (MCMSettings.Instance is { } settings)
@@ -61,6 +61,7 @@ namespace MarryAnyone.Settings
                     MAConfig.Instance.PregnancyMode = config.PregnancyMode;
                     MAConfig.Instance.FertilityBonus = config.FertilityBonus;
                     MAConfig.Instance.MinMarriageAge = config.MinMarriageAge;
+                    MAConfig.Instance.MinPregnancyAge = config.MinPregnancyAge;
                     NoMCMWarning = true;
                     NoConfigWarning = false;
                 }
