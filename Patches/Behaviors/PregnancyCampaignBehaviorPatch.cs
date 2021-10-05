@@ -9,10 +9,8 @@ using TaleWorlds.CampaignSystem.Actions;
 using TaleWorlds.CampaignSystem.SandBox.CampaignBehaviors;
 using TaleWorlds.Core;
 
-
 namespace MarryAnyone.Patches.Behaviors
 {
-    
     // Add in a setting for enabling polyamory so it does not have to be a harem
     [HarmonyPatch(typeof(PregnancyCampaignBehavior), "DailyTickHero")]
     internal class PregnancyCampaignBehaviorPatch
@@ -150,7 +148,7 @@ namespace MarryAnyone.Patches.Behaviors
             for (var i = 0; i < codes.Count; i++)
             {
                 if(codes[i].opcode == OpCodes.Ldc_R4 && (float)codes[i].operand == 18f){
-                    MAHelper.Print("transpiler epalced vlaue");
+                    MAHelper.Print("transpiler replaced value");
                     codes[i].operand = 0f;
                 }
             }
@@ -224,15 +222,14 @@ namespace MarryAnyone.Patches.Behaviors
         }
 
         public static bool Prefix(PregnancyCampaignBehavior __instance, Hero hero)
-        {       
+        {
             ISettingsProvider settings = new MASettings();
             bool isNearbyBase = CheckForPregnancies.CheckAreNearbyBase(__instance, hero, hero.Spouse);
             if ((hero == Hero.MainHero || hero.Spouse == Hero.MainHero) && isNearbyBase)
-            {   
+            {
                 float rndChance = MBRandom.RandomFloat;
                 float heroChance = Campaign.Current.Models.PregnancyModel.GetDailyChanceOfPregnancyForHero(hero) * settings.FertilityBonus;
                 float heroSpouseChance = Campaign.Current.Models.PregnancyModel.GetDailyChanceOfPregnancyForHero(hero.Spouse) * settings.FertilityBonus;
-
 
                     MAHelper.Print($"RefreshSpouseVisit " +
                         $"\n Hero: {hero.Name.ToString()}" +
@@ -243,7 +240,6 @@ namespace MarryAnyone.Patches.Behaviors
                         $"\n Hero ShouldBePregnant: {rndChance <= heroChance}" +
                         $"\n Spouse ShouldBePregnant: {rndChance <= heroSpouseChance}"
                         );
-                
 
                 if (settings.PregnancyMode == "Default")
                 {
